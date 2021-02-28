@@ -12,6 +12,7 @@
 		8BBB839D25EB53520064FB9E /* RandomImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBB839C25EB53520064FB9E /* RandomImageResponse.swift */; };
 		8BBB83A025EB53690064FB9E /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBB839F25EB53690064FB9E /* ImageDownloader.swift */; };
 		8BBB83A825EB560F0064FB9E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBB83A725EB560F0064FB9E /* GameViewController.swift */; };
+		8BBB83AB25EB5A920064FB9E /* GameError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBB83AA25EB5A920064FB9E /* GameError.swift */; };
 		8BD238C425EB51C40021EDED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD238C225EB51C40021EDED /* Main.storyboard */; };
 		8BD238C625EB51C50021EDED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BD238C525EB51C50021EDED /* Assets.xcassets */; };
 		8BD238C925EB51C50021EDED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD238C725EB51C50021EDED /* LaunchScreen.storyboard */; };
@@ -23,6 +24,7 @@
 		8BBB839C25EB53520064FB9E /* RandomImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomImageResponse.swift; sourceTree = "<group>"; };
 		8BBB839F25EB53690064FB9E /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		8BBB83A725EB560F0064FB9E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		8BBB83AA25EB5A920064FB9E /* GameError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameError.swift; sourceTree = "<group>"; };
 		8BD238B925EB51C40021EDED /* simplecombinewithswift-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simplecombinewithswift-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BD238C325EB51C40021EDED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BD238C525EB51C50021EDED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				8BBB83A725EB560F0064FB9E /* GameViewController.swift */,
+				8BBB83AA25EB5A920064FB9E /* GameError.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				8BBB83A825EB560F0064FB9E /* GameViewController.swift in Sources */,
 				8BBB839D25EB53520064FB9E /* RandomImageResponse.swift in Sources */,
 				8BBB839725EB52E80064FB9E /* UnsplashAPI.swift in Sources */,
+				8BBB83AB25EB5A920064FB9E /* GameError.swift in Sources */,
 				8BBB83A025EB53690064FB9E /* ImageDownloader.swift in Sources */,
 				8BBB839A25EB533F0064FB9E /* ImageType.swift in Sources */,
 			);

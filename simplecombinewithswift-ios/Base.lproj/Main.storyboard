@@ -12,7 +12,7 @@
         <!--Navigation Controller-->
         <scene sceneID="keK-3a-Z8q">
             <objects>
-                <navigationController id="XjZ-zi-Jlm" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="GameNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XjZ-zi-Jlm" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MuH-Cx-hKs">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-1295" y="-386"/>
         </scene>
-        <!--View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="4sO-yb-NsG">
             <objects>
-                <viewController id="Zkg-O9-0in" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zkg-O9-0in" customClass="GameViewController" customModule="simplecombinewithswift_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k1O-dd-1Yu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,6 +58,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CnV-Kv-edh">
                                                         <rect key="frame" x="0.0" y="0.0" width="177" height="160"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <connections>
+                                                            <action selector="imageButtonActionWithSender:" destination="Zkg-O9-0in" eventType="touchUpInside" id="ZHu-Lw-yWm"/>
+                                                        </connections>
                                                     </button>
                                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Qes-og-oDf">
                                                         <rect key="frame" x="72.5" y="64" width="32" height="32"/>
@@ -88,6 +91,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6l-Ww-QIW">
                                                         <rect key="frame" x="0.0" y="0.0" width="177" height="160"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <connections>
+                                                            <action selector="imageButtonActionWithSender:" destination="Zkg-O9-0in" eventType="touchUpInside" id="GJb-TA-6Uf"/>
+                                                        </connections>
                                                     </button>
                                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="PaH-Jy-1Wp">
                                                         <rect key="frame" x="72.5" y="64" width="32" height="32"/>
@@ -123,6 +129,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xT5-7I-CQb">
                                                         <rect key="frame" x="0.0" y="0.0" width="177" height="160"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <connections>
+                                                            <action selector="imageButtonActionWithSender:" destination="Zkg-O9-0in" eventType="touchUpInside" id="83h-N5-hVb"/>
+                                                        </connections>
                                                     </button>
                                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="d4u-kX-LhV">
                                                         <rect key="frame" x="72.5" y="64" width="32" height="32"/>
@@ -153,6 +162,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sro-sZ-du6">
                                                         <rect key="frame" x="0.0" y="0.0" width="177" height="160"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <connections>
+                                                            <action selector="imageButtonActionWithSender:" destination="Zkg-O9-0in" eventType="touchUpInside" id="q9H-ST-gwK"/>
+                                                        </connections>
                                                     </button>
                                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Pkc-Bl-Ep9">
                                                         <rect key="frame" x="72.5" y="64" width="32" height="32"/>
@@ -187,6 +199,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playOrStopActionWithSender:" destination="Zkg-O9-0in" eventType="touchUpInside" id="Vzj-fD-i4n"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ynf-eu-1jU"/>
@@ -204,6 +219,22 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="syz-X1-Bdl"/>
+                    <connections>
+                        <outlet property="gameScoreLabel" destination="vIl-AJ-ZX1" id="PL0-is-UAV"/>
+                        <outlet property="gameStateButton" destination="Xdw-0B-AId" id="sQ0-uJ-bM1"/>
+                        <outletCollection property="gameImageButton" destination="CnV-Kv-edh" collectionClass="NSMutableArray" id="d0H-LB-xcL"/>
+                        <outletCollection property="gameImageButton" destination="L6l-Ww-QIW" collectionClass="NSMutableArray" id="KOq-Bp-1TF"/>
+                        <outletCollection property="gameImageButton" destination="xT5-7I-CQb" collectionClass="NSMutableArray" id="Hc9-4B-cgQ"/>
+                        <outletCollection property="gameImageButton" destination="sro-sZ-du6" collectionClass="NSMutableArray" id="V8f-pD-MUL"/>
+                        <outletCollection property="gameImageLoader" destination="Qes-og-oDf" collectionClass="NSMutableArray" id="Rcr-dI-qcl"/>
+                        <outletCollection property="gameImageLoader" destination="PaH-Jy-1Wp" collectionClass="NSMutableArray" id="dIC-xy-ohh"/>
+                        <outletCollection property="gameImageLoader" destination="d4u-kX-LhV" collectionClass="NSMutableArray" id="wco-e1-9jc"/>
+                        <outletCollection property="gameImageLoader" destination="Pkc-Bl-Ep9" collectionClass="NSMutableArray" id="woP-OY-N3y"/>
+                        <outletCollection property="gameImageView" destination="HJK-hK-HxH" collectionClass="NSMutableArray" id="Ole-gj-SDw"/>
+                        <outletCollection property="gameImageView" destination="Ygk-Dq-pE6" collectionClass="NSMutableArray" id="SDp-JS-zyP"/>
+                        <outletCollection property="gameImageView" destination="YaY-EU-a1m" collectionClass="NSMutableArray" id="3Ku-Xp-RVL"/>
+                        <outletCollection property="gameImageView" destination="XQn-py-aQt" collectionClass="NSMutableArray" id="vcp-tN-APn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQg-k7-UM9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

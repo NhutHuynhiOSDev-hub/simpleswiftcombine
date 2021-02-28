@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 enum GameState {
     
@@ -40,8 +41,10 @@ class GameViewController: UIViewController {
 
     var gameLevel = 0
     var gameScore = 0
-    var gameTimer   : Timer?
-    var gameImages: [UIImage] = []
+    
+    var gameImages      : [UIImage] = []
+    var gameTimer       : AnyCancellable?
+    var subscriptions   : Set<AnyCancellable> = []
     
     // MARK: - Game Actions
     @IBAction func playOrStopAction(sender: UIButton) {
@@ -73,73 +76,61 @@ class GameViewController: UIViewController {
     // MARK: - Game Functions
     func playGame() {
         
-        gameTimer?.invalidate()
-        gameStateButton.setTitle("Stop", for: .normal)
+        self.gameTimer = Timer.publish(every: 0.1, on: RunLoop.main, in: .common)
+          .autoconnect()
+          .sink { [unowned self] _ in
+          
+            self.gameScoreLabel.text = "Score: \(self.gameScore)"
+            self.gameScore -= 10
 
-        gameLevel += 1
-        title = "Level: \(gameLevel)"
-
-        gameScoreLabel.text = "Score: \(gameScore)"
-        gameScore += 200
-
-        resetImages()
-        startLoaders()
-
-        UnsplashAPI.randomImage { [unowned self] randomImageResponse in
-            
-            guard let randomImageResponse = randomImageResponse else {
+            if self.gameScore < 0 {
                 
-                DispatchQueue.main.async { self.gameState = .stop }
-                return
-            }
-
-            ImageDownloader.download(url: randomImageResponse.urls.regular) { [unowned self] image in
-                
-                guard let image = image else { return }
-                self.gameImages.append(image)
-                
-                UnsplashAPI.randomImage { [unowned self] randomImageResponse in
-                    
-                    guard let randomImageResponse = randomImageResponse else {
-            
-                        DispatchQueue.main.async { self.gameState = .stop }
-                        return
-                    }
-                    
-                    ImageDownloader.download(url: randomImageResponse.urls.regular) { [unowned self] image in
-            
-                        guard let image = image else { return }
-
-                        self.gameImages.append(contentsOf: [image, image, image])
-                        self.gameImages.shuffle()
-
-            
-                        DispatchQueue.main.async {
-              
-                            self.gameScoreLabel.text = "Score: \(self.gameScore)"
-                            self.gameTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [unowned self] timer in
-                
-                                DispatchQueue.main.async { self.gameScoreLabel.text = "Score: \(self.gameScore)" }
-                
-                                self.gameScore -= 10
-                                if self.gameScore <= 0 {
-                  
-                                    self.gameScore = 0
-                                    timer.invalidate()
-                                }
-                            }
-                            self.stopLoaders()
-                            self.setImages()
-                        }
-                    }
-                }
+                self.gameScore = 0
+                self.gameTimer?.cancel()
             }
         }
+
+        
+        let firstImage = UnsplashAPI.randomImage()
+          .flatMap { randomImageResponse in
+            
+            ImageDownloader.download(url: randomImageResponse.urls.regular)
+          }
+        
+        let secondImage = UnsplashAPI.randomImage()
+            .flatMap { randomImageResponse in
+           
+                ImageDownloader.download(url: randomImageResponse.urls.regular)
+          }
+        
+        firstImage.zip(secondImage)
+          .receive(on: DispatchQueue.main)
+          .sink(receiveCompletion: { [unowned self] completion in
+            
+            switch completion {
+
+                case .finished  : break
+                case .failure (let error):
+                  
+                    print("Error: \(error)")
+                    self.gameState = .stop
+                }
+          }, receiveValue: { [unowned self] first, second in
+            
+            self.gameImages = [first, second, second, second].shuffled()
+            self.gameScoreLabel.text = "Score: \(self.gameScore)"
+
+            self.stopLoaders()
+            self.setImages()
+          })
+            .store(in: &subscriptions)
     }
 
   func stopGame() {
     
-    gameTimer?.invalidate()
+    subscriptions.forEach { $0.cancel() }
+    
+    self.gameTimer?.cancel()
     gameStateButton.setTitle("Play", for: .normal)
 
     title = "Find or Lose"
@@ -163,7 +154,8 @@ class GameViewController: UIViewController {
 
     func resetImages() {
     
-        gameImages = []
+        gameImages      = []
+        subscriptions   = []
         gameImageView.forEach { $0.image = nil }
     }
   
