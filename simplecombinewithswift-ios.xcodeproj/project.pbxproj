@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8BD238BD25EB51C40021EDED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD238BC25EB51C40021EDED /* AppDelegate.swift */; };
-		8BD238BF25EB51C40021EDED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD238BE25EB51C40021EDED /* SceneDelegate.swift */; };
-		8BD238C125EB51C40021EDED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD238C025EB51C40021EDED /* ViewController.swift */; };
+		8BBB839725EB52E80064FB9E /* UnsplashAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBB839625EB52E80064FB9E /* UnsplashAPI.swift */; };
+		8BBB839A25EB533F0064FB9E /* ImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBB839925EB533F0064FB9E /* ImageType.swift */; };
+		8BBB839D25EB53520064FB9E /* RandomImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBB839C25EB53520064FB9E /* RandomImageResponse.swift */; };
+		8BBB83A025EB53690064FB9E /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBB839F25EB53690064FB9E /* ImageDownloader.swift */; };
+		8BBB83A825EB560F0064FB9E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBB83A725EB560F0064FB9E /* GameViewController.swift */; };
 		8BD238C425EB51C40021EDED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD238C225EB51C40021EDED /* Main.storyboard */; };
 		8BD238C625EB51C50021EDED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BD238C525EB51C50021EDED /* Assets.xcassets */; };
 		8BD238C925EB51C50021EDED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BD238C725EB51C50021EDED /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8BBB839625EB52E80064FB9E /* UnsplashAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashAPI.swift; sourceTree = "<group>"; };
+		8BBB839925EB533F0064FB9E /* ImageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageType.swift; sourceTree = "<group>"; };
+		8BBB839C25EB53520064FB9E /* RandomImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomImageResponse.swift; sourceTree = "<group>"; };
+		8BBB839F25EB53690064FB9E /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		8BBB83A725EB560F0064FB9E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		8BD238B925EB51C40021EDED /* simplecombinewithswift-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simplecombinewithswift-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8BD238BC25EB51C40021EDED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8BD238BE25EB51C40021EDED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8BD238C025EB51C40021EDED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8BD238C325EB51C40021EDED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BD238C525EB51C50021EDED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BD238C825EB51C50021EDED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +41,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8BBB839125EB52B80064FB9E /* MainFiles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MainFiles;
+			sourceTree = "<group>";
+		};
+		8BBB839425EB52CA0064FB9E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8BBB839925EB533F0064FB9E /* ImageType.swift */,
+				8BBB839C25EB53520064FB9E /* RandomImageResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8BBB839525EB52D30064FB9E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8BBB839625EB52E80064FB9E /* UnsplashAPI.swift */,
+				8BBB839F25EB53690064FB9E /* ImageDownloader.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8BBB83A225EB55F70064FB9E /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				8BBB83A725EB560F0064FB9E /* GameViewController.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
 		8BD238B025EB51C40021EDED = {
 			isa = PBXGroup;
 			children = (
@@ -56,9 +93,10 @@
 		8BD238BB25EB51C40021EDED /* simplecombinewithswift-ios */ = {
 			isa = PBXGroup;
 			children = (
-				8BD238BC25EB51C40021EDED /* AppDelegate.swift */,
-				8BD238BE25EB51C40021EDED /* SceneDelegate.swift */,
-				8BD238C025EB51C40021EDED /* ViewController.swift */,
+				8BBB83A225EB55F70064FB9E /* Game */,
+				8BBB839525EB52D30064FB9E /* Network */,
+				8BBB839425EB52CA0064FB9E /* Model */,
+				8BBB839125EB52B80064FB9E /* MainFiles */,
 				8BD238C225EB51C40021EDED /* Main.storyboard */,
 				8BD238C525EB51C50021EDED /* Assets.xcassets */,
 				8BD238C725EB51C50021EDED /* LaunchScreen.storyboard */,
@@ -98,6 +136,7 @@
 				TargetAttributes = {
 					8BD238B825EB51C40021EDED = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
@@ -137,9 +176,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BD238C125EB51C40021EDED /* ViewController.swift in Sources */,
-				8BD238BD25EB51C40021EDED /* AppDelegate.swift in Sources */,
-				8BD238BF25EB51C40021EDED /* SceneDelegate.swift in Sources */,
+				8BBB83A825EB560F0064FB9E /* GameViewController.swift in Sources */,
+				8BBB839D25EB53520064FB9E /* RandomImageResponse.swift in Sources */,
+				8BBB839725EB52E80064FB9E /* UnsplashAPI.swift in Sources */,
+				8BBB83A025EB53690064FB9E /* ImageDownloader.swift in Sources */,
+				8BBB839A25EB533F0064FB9E /* ImageType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,15 +327,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R686QWKZW7;
 				INFOPLIST_FILE = "simplecombinewithswift-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nhuthuynhquang.simplecombine.simplecombinewithswift-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nhuthuynhquang.simpleswiftcombine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -305,14 +349,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R686QWKZW7;
 				INFOPLIST_FILE = "simplecombinewithswift-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nhuthuynhquang.simplecombine.simplecombinewithswift-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nhuthuynhquang.simpleswiftcombine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
