@@ -76,20 +76,18 @@ class GameViewController: UIViewController {
     // MARK: - Game Functions
     func playGame() {
         
-        self.gameTimer = Timer.publish(every: 0.1, on: RunLoop.main, in: .common)
-          .autoconnect()
-          .sink { [unowned self] _ in
-          
-            self.gameScoreLabel.text = "Score: \(self.gameScore)"
-            self.gameScore -= 10
+        gameTimer?.cancel()
+        gameStateButton.setTitle("Stop", for: .normal)
 
-            if self.gameScore < 0 {
-                
-                self.gameScore = 0
-                self.gameTimer?.cancel()
-            }
-        }
+        gameLevel += 1
+        title = "Level: \(gameLevel)"
 
+        gameScoreLabel.text = "Score: \(gameScore)"
+
+        gameScore += 200
+
+        resetImages()
+        startLoaders()
         
         let firstImage = UnsplashAPI.randomImage()
           .flatMap { randomImageResponse in
@@ -119,7 +117,20 @@ class GameViewController: UIViewController {
             
             self.gameImages = [first, second, second, second].shuffled()
             self.gameScoreLabel.text = "Score: \(self.gameScore)"
+            
+            self.gameTimer = Timer.publish(every: 0.1, on: RunLoop.main, in: .common)
+              .autoconnect()
+              .sink { [unowned self] _ in
+                self.gameScoreLabel.text = "Score: \(self.gameScore)"
+                self.gameScore -= 10
 
+                if self.gameScore < 0 {
+                  self.gameScore = 0
+
+                  self.gameTimer?.cancel()
+                }
+              }
+            
             self.stopLoaders()
             self.setImages()
           })

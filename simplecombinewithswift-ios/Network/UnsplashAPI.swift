@@ -10,7 +10,7 @@ import Foundation
 
 enum UnsplashAPI {
     
-    static let  accessToken = "majoqpqXnAUdrFyYmxz9hnDVr-ckEp6YvaU-nxJs4BQs"
+    static let  accessToken = "majoqpqXnAUdrFyYmxz9hnDVr-ckEp6YvaU-nxJs4BQ"
     
     static func randomImage() -> AnyPublisher<RandomImageResponse, GameError> {
         
